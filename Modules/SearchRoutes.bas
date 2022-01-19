@@ -80,26 +80,6 @@ Public Function GetRouteFromGoogleMapsAPI(ByVal sOrigin As String, ByVal sDest A
     
 End Function
 
-'•¶š—ñ‚ğ1s‚¸‚Âæ“¾
-Public Function GetEachLine(ByVal sInput As String) As Scripting.Dictionary
-    Dim sline As String
-    Dim s As String
-    Dim i As Long
-    Dim lr As Long
-    
-    lr = 12
-    For i = 1 To Len(sInput)
-        s = Mid(sInput, i, 1)
-        If s = vbLf Then
-            Cells(lr, 2) = sline
-            sline = ""
-            lr = lr + 1
-        ElseIf s <> vbCr Then
-            sline = sline & s
-        End If
-    Next
-End Function
-
 '•¶š—ñ‚ğˆêŠ‡’uŠ·‚·‚é
 Public Function ReplaceAllTargetStrings(ByVal sInput As String, ByVal sFindText As String, ByVal sReplaceText As String) As String
     Do While True
