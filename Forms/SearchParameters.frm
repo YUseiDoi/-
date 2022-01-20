@@ -2,9 +2,9 @@ VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} SearchParameters 
    Caption         =   "検索フォーム"
    ClientHeight    =   3708
-   ClientLeft      =   -168
-   ClientTop       =   -696
-   ClientWidth     =   12048
+   ClientLeft      =   -192
+   ClientTop       =   -792
+   ClientWidth     =   9636.001
    OleObjectBlob   =   "SearchParameters.frx":0000
    StartUpPosition =   1  'オーナー フォームの中央
 End

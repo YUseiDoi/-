@@ -62,11 +62,11 @@ Public Function GetRouteFromGoogleMapsAPI(ByVal sOrigin As String, ByVal sDest A
         If InStr(1, oKey, "html_instructions", vbTextCompare) > 0 Then
             oKey = Left(oKey, InStr(1, oKey, """,", vbTextCompare) - 1)
             oKey = Right(oKey, Len(oKey) - InStr(1, oKey, ": """, vbTextCompare) - 2)
-            oKey = ReplaceAllTargetStrings(oKey, "\u003cb\u003e", "")
-            oKey = ReplaceAllTargetStrings(oKey, "\u003c/b\u003e", "")
-            oKey = ReplaceAllTargetStrings(oKey, "/\u003cwbr/\u003e", "")
-            oKey = ReplaceAllTargetStrings(oKey, "\u003cdiv style=\""font-size:0.9em\""\u003", "")
-            oKey = ReplaceAllTargetStrings(oKey, "\u003c/div\u003e", "")
+            oKey = ReplaceAllStrings(oKey, "\u003cb\u003e", "")
+            oKey = ReplaceAllStrings(oKey, "\u003c/b\u003e", "")
+            oKey = ReplaceAllStrings(oKey, "/\u003cwbr/\u003e", "")
+            oKey = ReplaceAllStrings(oKey, "\u003cdiv style=\""font-size:0.9em\""\u003", "")
+            oKey = ReplaceAllStrings(oKey, "\u003c/div\u003e", "")
             'ユーザーフォームに検索結果を表示
             If formSearchParam.ResultBox.Value <> "" Then
                 formSearchParam.ResultBox.Value = formSearchParam.ResultBox.Value & vbCrLf & oKey
@@ -81,7 +81,7 @@ Public Function GetRouteFromGoogleMapsAPI(ByVal sOrigin As String, ByVal sDest A
 End Function
 
 '文字列を一括置換する
-Public Function ReplaceAllTargetStrings(ByVal sInput As String, ByVal sFindText As String, ByVal sReplaceText As String) As String
+Public Function ReplaceAllStrings(ByVal sInput As String, ByVal sFindText As String, ByVal sReplaceText As String) As String
     Do While True
         If InStr(1, sInput, sFindText) > 0 Then
             sInput = Replace(sInput, sFindText, sReplaceText)
@@ -89,5 +89,5 @@ Public Function ReplaceAllTargetStrings(ByVal sInput As String, ByVal sFindText 
             Exit Do
         End If
     Loop
-    ReplaceAllTargetStrings = sInput
+    ReplaceAllStrings = sInput
 End Function
